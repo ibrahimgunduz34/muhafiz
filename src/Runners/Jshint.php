@@ -23,12 +23,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Jshint extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "JSHint";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "JSHint";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which jshint && jshint --version";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/.*\.js$/"; //only .js files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         //get required config params
         $configFile = $this->_vcs->getConfig("muhafiz.runners.jshint.config", ".jshintrc");

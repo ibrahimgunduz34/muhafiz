@@ -24,11 +24,29 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Phpcsfixer extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "PHP Coding Standards Fixer";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "php-cs-fixer";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which php-cs-fixer && php-cs-fixer --version | grep -iq 'PHP CS Fixer'";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/\.ph(p|tml)$/"; //php and phtml files should be checked
 
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
     public function run(array $files)
     {
         if ($this->_vcs->usesStdout()) {

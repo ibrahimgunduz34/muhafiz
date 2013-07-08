@@ -23,12 +23,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Consolefoo extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "console.foo()";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "grep";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which grep";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/\.js$/"; //php and phtml files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         foreach ($files as $file) {
             //check if files have console.*() statements

@@ -24,12 +24,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Phpcs extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "Php CodeSniffer";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "phpcs";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which phpcs && phpcs --version | grep -iq php_codesniffer";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/\.ph(p|tml)$/"; //php and phtml files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         //get required config params
         $standard = $this->_vcs->getConfig("muhafiz.runners.phpcs.standard", "PEAR");

@@ -22,12 +22,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Bom extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "ByteOrderMark";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "cat";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which cat && cat --version";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = null; //all files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         foreach ($files as $file) {
             //cat file with --show-nonprinting option

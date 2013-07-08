@@ -19,11 +19,29 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
 
 class Xmllint extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = 'XML Lint';
+
+    /**
+     * @var string
+     */
     protected $_toolName = "xmllint";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which xmllint";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/.*\.xml$/";
 
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
     public function run(array $files)
     {
         foreach ($files as $file) {

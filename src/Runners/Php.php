@@ -23,12 +23,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Php extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "Php Linter";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "php";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which php && php --version";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = "/\.ph(p|tml)$/"; //php and phtml files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         foreach ($files as $file) {
             //force php to display_errors and run php linter, also redirect stderr to stdout

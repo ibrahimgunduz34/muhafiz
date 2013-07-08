@@ -23,12 +23,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Forbiddenfile extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "Forbiddenfile";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "grep";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which grep";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = null; //all files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
         $rule = Git::getConfig("muhafiz.runners.forbiddenfile.pattern", "(\.swp|\.swo|\.save|#|~)$");
 

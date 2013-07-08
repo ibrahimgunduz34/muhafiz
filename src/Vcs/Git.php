@@ -24,8 +24,7 @@ use Muhafiz\Vcs\VcsAbstract as VcsAbstract;
 class Git extends VcsAbstract
 {
     /**
-     * return list of staged files
-     * @return array
+     * @see Muhafiz\Vcs\VcsAbstract::getStagedFiles()
      */
     public function getStagedFiles()
     {
@@ -34,8 +33,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * return list of new added files
-     * @return array
+     * @see Muhafiz\Vcs\VcsAbstract::getNewFiles()
      */
     public function getNewFiles()
     {
@@ -44,12 +42,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * Get list of files between revisions by generating last file as a tmp
-     * source so we can get them on pre-receive hook
-     *
-     * @param string $firstRev first revision
-     * @param string $secondRev revision after commit
-     * @return array list of files
+     * @see Muhafiz\Vcs\VcsAbstract::getFilesAfterCommit()
      */
     public function getFilesAfterCommit($firstRev, $secondRev)
     {
@@ -83,10 +76,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * read config from given key
-     * @param string $key key to read
-     * @param string|null $defaultValue default value for key, if value not set
-     * @return string
+     * @see Muhafiz\Vcs\VcsAbstract::getConfig()
      */
     public function getConfig($key, $defaultValue = null)
     {
@@ -96,10 +86,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * Set git config by key/value
-     * @param string $key key to set
-     * @param string $value value for key
-     * @return boolean
+     * @see Muhafiz\Vcs\VcsAbstract::setConfig()
      */
     public function setConfig($key, $value)
     {
@@ -109,9 +96,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * Gets the cmd to print contents of changed file
-     * @param string $file file to print
-     * @return string cat cmd
+     * @see Muhafiz\Vcs\VcsAbstract::catCommand()
      */
     public function catCommand($file)
     {
@@ -121,6 +106,7 @@ class Git extends VcsAbstract
 
     /**
      * Removes any file flag like A, M, ?? from file
+     *
      * @param array $result
      * @return array
      */
@@ -137,8 +123,7 @@ class Git extends VcsAbstract
 
 
     /**
-     * Determines the vcs uses stdout or not
-     * @return bool true if vcs uses stdout
+     * @see Muhafiz\Vcs\VcsAbstract::usesStdout()
      */
     public function usesStdout()
     {

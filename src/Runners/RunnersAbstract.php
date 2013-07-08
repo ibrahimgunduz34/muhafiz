@@ -22,12 +22,21 @@ use Muhafiz\Utils\System as Sys;
  */
 abstract class RunnersAbstract
 {
+    /**
+     * @var string
+     */
     private $_excludePattern;
+
+    /**
+     * @var string
+     */
     protected $_vcs;
 
     /**
      * If any other tool needed for this runner
      * check availilibility of this by executing $_toolCheckCommand
+     *
+     * @param Muhafiz\Vcs\VcsAbstract $vcs
      */
     public final function __construct($vcs)
     {
@@ -62,7 +71,9 @@ abstract class RunnersAbstract
 
     /**
      * a wrapper which we may use to collect all errors and throw at once
-     * @param mixed $out command output
+     *
+     * @param array $out command output
+     * @throws \Muhafiz\Exceptions\RuleFailed
      */
     protected function _onRuleFailed(array $out)
     {
@@ -73,6 +84,7 @@ abstract class RunnersAbstract
     /**
      * filter files with exclude path
      *
+     * @param array $files
      * @return string
      */
     private function _filterExcludePaths($files)
@@ -92,6 +104,7 @@ abstract class RunnersAbstract
     /**
      * filter files matching $_fileFilterRegexp
      *
+     * @param array $files
      * @return string
      */
     private function _filterFiles($files)
@@ -107,6 +120,7 @@ abstract class RunnersAbstract
      * callback function for array_filter
      *
      * @param mixed $input
+     * @return boolean
      */
     private function _filterByRegexp($input)
     {
@@ -118,6 +132,7 @@ abstract class RunnersAbstract
      * callback function for array_filter
      *
      * @param mixed $input
+     * @return boolean
      */
     private function _excludeByRegexp($input)
     {
@@ -129,6 +144,8 @@ abstract class RunnersAbstract
 
     /**
      * Runner method which should return boolean or throw an exception
-     */ 
+     *
+     * @param array $files
+     */
     abstract public function run (array $files);
 }

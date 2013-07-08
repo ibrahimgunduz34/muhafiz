@@ -22,12 +22,30 @@ use Muhafiz\Runners\RunnersAbstract as RunnersAbstract;
  */
 class Lineend extends RunnersAbstract
 {
+    /**
+     * @var string
+     */
     protected $_name = "Check Line Ends";
+
+    /**
+     * @var string
+     */
     protected $_toolName = "cat and wc";
+
+    /**
+     * @var string
+     */
     protected $_toolCheckCommand = "which cat && which wc";
+
+    /**
+     * @var string
+     */
     protected $_fileFilterRegexp = null; //all files should be checked
 
-    function run(array $files)
+    /**
+     * @see Muhafiz\Runners\RunnersAbstract::run()
+     */
+    public function run(array $files)
     {
 
         //get required config params

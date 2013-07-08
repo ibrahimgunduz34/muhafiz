@@ -43,8 +43,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * return list of staged files
-     * @return array
+     * @see Muhafiz\Vcs\VcsAbstract::getStagedFiles()
      */
     public function getStagedFiles()
     {
@@ -55,8 +54,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * return list of new added files
-     * @return array
+     * @see Muhafiz\Vcs\VcsAbstract::getNewFiles()
      */
     public function getNewFiles()
     {
@@ -65,12 +63,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * Get list of files between revisions by generating last file as a tmp
-     * source so we can get them on pre-receive hook
-     *
-     * @param string $firstRev first revision
-     * @param string $secondRev revision after commit
-     * @return array list of files
+     * @see Muhafiz\Vcs\VcsAbstract::getFilesAfterCommit()
      */
     public function getFilesAfterCommit($firstRev, $secondRev)
     {
@@ -79,10 +72,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * read config from given key
-     * @param string $key key to read
-     * @param string|null $defaultValue default value for key, if value not set
-     * @return string
+     * @see Muhafiz\Vcs\VcsAbstract::getConfig()
      */
     public function getConfig($key, $defaultValue = null)
     {
@@ -91,10 +81,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * Set svn config by key/value
-     * @param string $key key to set
-     * @param string $value value for key
-     * @return boolean
+     * @see Muhafiz\Vcs\VcsAbstract::setConfig()
      */
     public function setConfig($key, $value)
     {
@@ -107,9 +94,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * Gets the cmd to print contents of changed file
-     * @param string $file file to print
-     * @return string cat cmd
+     * @see Muhafiz\Vcs\VcsAbstract::catCommand()
      */
     public function catCommand($file)
     {
@@ -118,8 +103,7 @@ class Subversion extends VcsAbstract
 
 
     /**
-     * Determines the vcs uses stdout or not
-     * @return bool true if vcs uses stdout
+     * @see Muhafiz\Vcs\VcsAbstract::usesStdout()
      */
     public function usesStdout()
     {
